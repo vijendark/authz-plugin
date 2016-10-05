@@ -7,7 +7,7 @@ import (
     "github.com/docker/docker/pkg/authorization"
 )
 
-// AuthorizeDeleteAction checks a delete command against a list of Carina infrastructure to prevent
+// AuthorizeDeleteAction checks a delete command against a list of swarm infrastructure to prevent
 // accidental deletion of these containers.
 func AuthorizeDeleteAction(uri string) *authorization.Response {
     target := extractDeleteTarget(uri)

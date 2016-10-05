@@ -10,7 +10,7 @@ import (
 	logrus_syslog "github.com/Sirupsen/logrus/hooks/syslog"
 	"github.com/docker/docker/pkg/authorization"
         "github.com/docker/engine-api/client"
-	"github.com/lblackstone/auth-plugin-stub/core"
+	"github.com/vijendark/authz-plugin/core"
 )
 
 // BasicPolicy represent a single policy object that is evaluated in the authorization flow.

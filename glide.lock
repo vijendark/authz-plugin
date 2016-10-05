@@ -1,40 +1,47 @@
-hash: b3bab5f55996521f7ff8432ded3db63336bed5df0337f6b3e6600dbe3bf42952
-updated: 2016-04-26T17:22:18.23598947-05:00
+hash: f3fd3f3d8ce4cda039735ae59a59235a4cc61a01200b2145d426fdd964792ea6
+updated: 2016-10-05T23:41:11.314047369Z
 imports:
 - name: github.com/codegangsta/cli
   version: 4733699ce30faa633c4db36ebfbe427963593d7d
+- name: github.com/docker/distribution
+  version: 99cb7c0946d2f5a38015443e515dc916295064d7
+  subpackages:
+  - digest
+  - reference
 - name: github.com/docker/docker
   version: 4925fcbe2e5db8e44d48af0ec12b2badb7af1752
   subpackages:
   - pkg/authorization
-  - pkg/plugins
-  - runconfig
   - pkg/ioutils
-  - pkg/plugins/transport
   - pkg/longpath
+  - pkg/plugins
+  - pkg/plugins/transport
+  - runconfig
 - name: github.com/docker/engine-api
   version: 25941ecf6e8351810e8530c60de8dda7d5e1baba
   subpackages:
   - client
-  - types
-  - types/container
-  - types/events
-  - types/filters
-  - types/network
   - client/transport
   - client/transport/cancellable
+  - types
+  - types/blkiodev
+  - types/container
+  - types/filters
+  - types/network
   - types/reference
   - types/registry
+  - types/strslice
   - types/swarm
   - types/time
   - types/versions
-  - types/blkiodev
-  - types/strslice
 - name: github.com/docker/go-connections
   version: 5b7154ba2efe13ff86ae8830a9e7cb120b080d6e
   subpackages:
+  - nat
   - sockets
   - tlsconfig
+- name: github.com/docker/go-units
+  version: f2145db703495b2e525c59662db69a7344b00bb8
 - name: github.com/gorilla/context
   version: a8d44e7d8e4d532b6a27a02dd82abb31cc1b01bd
 - name: github.com/gorilla/mux
@@ -64,4 +71,12 @@ imports:
   version: f64b50fbea64174967a8882830d621a18ee1548e
   subpackages:
   - unix
-devImports: []
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 5215b55f46b2b919f50a1df0eaa5886afe4e3b3d
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: d8ed2627bdf02c080bf22230dbb337003b7aba2d
+  subpackages:
+  - difflib

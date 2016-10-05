@@ -6,8 +6,8 @@ import (
 
 	"github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
-	"github.com/lblackstone/auth-plugin-stub/authz"
-	"github.com/lblackstone/auth-plugin-stub/core"
+	"github.com/vijendark/authz-plugin/authz"
+	"github.com/vijendark/authz-plugin/core"
 )
 
 const (
@@ -29,7 +29,7 @@ const (
 func main() {
 
 	app := cli.NewApp()
-	app.Name = "Docker Auth Plugin Stub"
+	app.Name = "Docker Auth Plugin"
 	app.Usage = "Authorization plugin for docker"
 	app.Version = "0.1"
 

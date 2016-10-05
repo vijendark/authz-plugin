@@ -1,4 +1,4 @@
-package: github.com/lblackstone/auth-plugin-stub
+package: github.com/vijendark/authz-plugin
 import:
 - package: github.com/Sirupsen/logrus
   subpackages:
