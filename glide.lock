@@ -12,6 +12,24 @@ imports:
   - pkg/ioutils
   - pkg/plugins/transport
   - pkg/longpath
+- name: github.com/docker/engine-api
+  version: 25941ecf6e8351810e8530c60de8dda7d5e1baba
+  subpackages:
+  - client
+  - types
+  - types/container
+  - types/events
+  - types/filters
+  - types/network
+  - client/transport
+  - client/transport/cancellable
+  - types/reference
+  - types/registry
+  - types/swarm
+  - types/time
+  - types/versions
+  - types/blkiodev
+  - types/strslice
 - name: github.com/docker/go-connections
   version: 5b7154ba2efe13ff86ae8830a9e7cb120b080d6e
   subpackages:

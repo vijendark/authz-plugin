@@ -9,6 +9,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	logrus_syslog "github.com/Sirupsen/logrus/hooks/syslog"
 	"github.com/docker/docker/pkg/authorization"
+        "github.com/docker/engine-api/client"
 	"github.com/lblackstone/auth-plugin-stub/core"
 )
 
@@ -55,6 +56,23 @@ func NewBasicAuthZAuthorizer(settings *BasicAuthorizerSettings) core.Authorizer 
 	return &basicAuthorizer{settings: settings}
 }
 
+// NewApiClient creates a new API client for the plugin to talk to the docker daemon
+func NewApiClient() *client.Client {
+    var version string
+    if version = os.Getenv("DOCKER_API_VERSION"); version == "" {
+        // Default to v1.22 if env variable not set
+        version = "v1.22"
+    }
+
+    defaultHeaders := map[string]string{"User-Agent": "engine-api-cli-1.0"}
+    cli, err := client.NewClient("unix:///var/run/docker.sock", version, nil, defaultHeaders)
+    if err != nil {
+        panic(err)
+    }
+
+    return cli
+}
+
 // Init loads the basic authz plugin configuration from disk
 func (f *basicAuthorizer) Init() error {
 
@@ -68,10 +86,24 @@ func (f *basicAuthorizer) AuthZReq(authZReq *authorization.Request) *authorizati
 
 	action := core.ParseRoute(authZReq.RequestMethod, authZReq.RequestURI)
 
+
+        if action == core.ActionContainerDelete {
+            if denyResponse := AuthorizeDeleteAction(authZReq.RequestURI); denyResponse != nil {
+                return denyResponse
+            }
+        }
 	return &authorization.Response{
 		Allow: true,
 		Msg:   fmt.Sprintf("Action '%s' allowed", action),
 	}
+}
+
+// actionDenied returns a negative authorization response
+func actionDenied(denyMessage string) *authorization.Response {
+    return &authorization.Response{
+        Allow: false,
+        Msg:   fmt.Sprint(denyMessage),
+    }
 }
 
 // AuthZRes always allow responses from server
