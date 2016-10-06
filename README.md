@@ -1,4 +1,4 @@
-# Auth Plugin Stub
+# Auth Plugin
 
 ## Build the plugin
 1. Install [glide](https://github.com/Masterminds/glide)
