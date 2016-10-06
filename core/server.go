@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	pluginName   = "auth-plugin-stub"
+	pluginName   = "authz-plugin"
 	pluginFolder = "/run/docker/plugins"
 )
 

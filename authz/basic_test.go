@@ -21,7 +21,7 @@ func TestAuditRequestSyslog(t *testing.T) {
 }
 
 func TestAuditRequestFile(t *testing.T) {
-	logPath := "/tmp/auth-plugin-stub.log"
+	logPath := "/tmp/authz-plugin.log"
 	auditor := NewBasicAuditor(&BasicAuditorSettings{LogHook: AuditHookFile, LogPath: logPath})
 	assert.NoError(t, auditor.AuditRequest(&authorization.Request{User: "user"}, &authorization.Response{Allow: true}))
 	log, err := ioutil.ReadFile(logPath)

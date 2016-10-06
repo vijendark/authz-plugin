@@ -11,7 +11,7 @@ const SwarmManagerContainerName string = "swarm-manager"
 const SwarmAgentContainerName string = "swarm-agent"
 const SwarmDataContainerName string = "swarm-data"
 
-var CarinaInfrastructureContainers = []string{
+var InfrastructureContainers = []string{
     SwarmManagerContainerName,
     SwarmAgentContainerName,
     SwarmDataContainerName,

@@ -12,7 +12,7 @@ import (
 func AuthorizeDeleteAction(uri string) *authorization.Response {
     target := extractDeleteTarget(uri)
 
-    for _, name := range CarinaInfrastructureContainers {
+    for _, name := range InfrastructureContainers {
         uuid, err := GetActiveContainerUUID(name)
         if err != nil {
             logrus.Error(err.Error())

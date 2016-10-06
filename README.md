@@ -11,7 +11,7 @@
 1. Update Docker daemon to run with authorization enabled.
 Example:
 ```bash
-   /usr/bin/docker daemon -H fd:// --authorization-plugin=auth-plugin-stub
+   /usr/bin/docker daemon -H fd:// --authorization-plugin=authz-plugin
 ``` 
   
 ## Extending the authorization plugin

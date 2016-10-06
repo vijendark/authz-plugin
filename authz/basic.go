@@ -9,7 +9,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	logrus_syslog "github.com/Sirupsen/logrus/hooks/syslog"
 	"github.com/docker/docker/pkg/authorization"
-        "github.com/docker/engine-api/client"
+	"github.com/docker/engine-api/client"
 	"github.com/vijendark/authz-plugin/core"
 )
 
@@ -39,7 +39,7 @@ const (
 )
 
 // defaultAuditLogPath is the file test hook log path
-const defaultAuditLogPath = "/var/log/auth-plugin-stub.log"
+const defaultAuditLogPath = "/var/log/authz-plugin.log"
 
 type basicAuthorizer struct {
 	settings *BasicAuthorizerSettings
